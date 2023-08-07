@@ -31,7 +31,7 @@
                 </a>
             </div>
           </div>
-          <table class = "table table-hover table-bordered" id = "users_table">
+          <table class = "table table-hover table-bordered w-100" id = "users_table">
             <thead class="table-light text-center">
               <tr>
                 <td>Nro</td>

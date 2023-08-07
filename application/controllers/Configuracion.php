@@ -38,8 +38,10 @@ class Configuracion extends CI_Controller {
         $this->load->view("configuracion/usuarios/insert", ["data" => $this->Usuarios_model->get_All_countries(), "msg"=>"", "rl"=>$this->Usuarios_model->get_All_roles()]);
     }
 
-    public function del_user(){
-        echo $this->input->get("");
+    public function del_user($id){
+        $this->load->model("Usuarios_model");
+        $this->load->view("dashboard/pages/HeadAdministrador");
+        $this->load->view("configuracion/usuarios/Delete_alert",["id"=>$id, "name"=>""]);
     }
 
     public function insert_user(){
