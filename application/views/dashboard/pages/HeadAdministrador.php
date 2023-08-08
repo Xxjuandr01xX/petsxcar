@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="<?php echo base_url('vendor/twbs/bootstrap/dist/css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('vendor/almasaeed2010/adminlte/dist/css/adminlte.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo  base_url('vendor/fortawesome/font-awesome/css/all.min.css');?>">
+    
+    <link rel="stylesheet" href="<?php echo base_url('vendor/almasaeed2010/adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('vendor/almasaeed2010/adminlte/dist/css/adminlte.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo  base_url('vendor/almasaeed2010/adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css');?>">
+
     <script src="<?php echo base_url('vendor/components/jquery/jquery.min.js'); ?>"></script>
     <script src="<?php echo base_url('vendor/twbs/bootstrap/dist/css/bootstrap.min.js'); ?>"></script>
     <script src="<?php echo base_url('vendor/almasaeed2010/adminlte/dist/js/adminlte.min.js'); ?>"></script>

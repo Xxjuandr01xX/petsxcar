@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Principal</h1>
+            <h1></h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -15,12 +15,17 @@
     <!-- Main content -->
     <section class="content">
       <form action="<?php echo base_url() ?>index.php/Configuracion/elim_user/<?php echo $id;?>" method = "POST">
-        <div class="alert alert-danger p-3" role = "alert">
-            Esta seguro que dese eliminar a <b><?php echo $name; ?></b> del sistema ?
-            <button type = "submit" class = "btn btn-danger rounded-circle"> 
-                <span class = "fa fa-trash"></span>
-            </button>
-        </div>
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">
+          <span class = "fa fa-exclamation-triangle"></span>
+          Cuidado !
+        </h4>
+        <p>Esta seguro que desea eliminar a <b class = "alert-link"><?php echo $name; ?></b> ?</p>
+        <hr>
+        <button type = "submit" class = "btn btn-danger rounded-pill btn-sm">
+          <span class = "fa fa-trash"></span> Eliminar
+        </button>
+      </div>
       </form>
       <a href="<?php echo base_url() ?>index.php/Configuracion/users_list" class = "btn btn-primary"><span class ="fa fa-home"></span> Regresar</a>
     </section>
