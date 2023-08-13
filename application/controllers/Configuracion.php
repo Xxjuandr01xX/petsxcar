@@ -38,10 +38,27 @@ class Configuracion extends CI_Controller {
         $this->load->view("configuracion/usuarios/insert", ["data" => $this->Usuarios_model->get_All_countries(), "msg"=>"", "rl"=>$this->Usuarios_model->get_All_roles()]);
     }
 
-    public function del_user($id){
+    public function upd_user($id){
         $this->load->model("Usuarios_model");
         $this->load->view("dashboard/pages/HeadAdministrador");
-        $this->load->view("configuracion/usuarios/Delete_alert",["id"=>$id, "name"=>""]);
+        $this->load->view("configuracion/usuarios/update",["data" => $this->Usuarios_model->get_upd_info_user($id), "msg" => ""]);
+    }
+
+    public function del_user($id){
+        $this->load->model("Usuarios_model");
+        $nomApe = "";
+        foreach($this->Usuarios_model->get_user_info($id)->result() as $user){
+            $nomApe = $user->nombre." ".$user->apellido;
+        }
+        $this->load->view("dashboard/pages/HeadAdministrador");
+        $this->load->view("configuracion/usuarios/Delete_alert",["id"=>$id, "name"=> $nomApe]);
+    }
+
+    public function elim_user($id){
+        $this->load->model("Usuarios_model");
+        if($this->Usuarios_model->drop_user($id) == true){
+            redirect("/Configuracion/users_list");
+        }
     }
 
     public function insert_user(){

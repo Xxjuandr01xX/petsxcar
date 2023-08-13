@@ -25,9 +25,14 @@ class Usuarios_model extends CI_Model{
         return $result;
     }
     public function get_All_users(){
-        return $this->db->query("select b.id as 'id_persona', b.nombre as 'nombre', b.apellido as 'apellido', b.dni as 'dni', c.descripcion as 'rol_name' from pets_usuarios a inner join pets_persona b on a.id_persona_fk=b.id LEFT JOIN pets_roles c ON a.id_rol_fk=c.id");
+        return $this->db->query("select a.id as 'id_usuario', b.nombre as 'nombre', b.apellido as 'apellido', b.dni as 'dni', c.descripcion as 'rol_name' from pets_usuarios a inner join pets_persona b on a.id_persona_fk=b.id LEFT JOIN pets_roles c ON a.id_rol_fk=c.id");
+    }
+    public function get_user_info($id){
+        return $this->db->get_where("pets_persona", ["id"=>$id]);
     } 
-    
+    public function get_upd_info_user($id){
+        return $this->db->query("select *  from pets_persona a inner join pets_usuarios b on a.id = b.id_persona_fk where b.id = '$id'");
+    }
     public function inser_user($id_nacionalidad, $dni, $nombre, $apellido, $telefono, $correo, $direccion, $contrasena, $rol){
         $person_insert = $this->db->insert("pets_persona", [
             "id" => null,
@@ -47,6 +52,21 @@ class Usuarios_model extends CI_Model{
                 "id_rol_fk" => $rol
             ]);
             if($user_insert){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+    public function drop_user($id){
+        $person_id = "";
+        foreach($this->db->get_where("pets_usuarios", ["id"=>$id])->result() as $per){
+            $person_id = $per->id_persona_fk;
+        }
+        if($this->db->delete("pets_persona", ["id"=>$per->id_persona_fk])){
+            if($this->db->delete("pets_usuarios", ["id"=>$id])){
                 return true;
             }else{
                 return false;

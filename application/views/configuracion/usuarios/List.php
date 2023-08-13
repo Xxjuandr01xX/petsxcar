@@ -49,9 +49,8 @@
                   <td><?php echo $user->dni;?></td>
                   <td><?php echo $user->rol_name;?></td>
                   <td>
-                    <a href="#" class = "btn btn-sm btn-primary"><span class = "fa fa-list"></span></a> |
-                    <a href="#" class = "btn btn-sm btn-warning"><span class = "fa fa-edit"></span></a> |
-                    <a href="<?php echo base_url();?>index.php/Configuracion/del_user/<?php echo $user->id_persona; ?>" class = "btn btn-sm btn-danger"><span class = "fa fa-trash"></span></a>
+                    <a href="<?php echo base_url();?>index.php/Configuracion/upd_user/<?php echo $user->id_usuario; ?>" class = "btn btn-sm btn-warning"><span class = "fa fa-edit"></span></a> |
+                    <a href="<?php echo base_url();?>index.php/Configuracion/del_user/<?php echo $user->id_usuario; ?>" class = "btn btn-sm btn-danger"><span class = "fa fa-trash"></span></a>
                   </td>
                 </tr>
               <?php } ?>
